@@ -1,0 +1,19 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
+    {% block static %}{% endblock %}
+</head>
+<body>
+    <div class="site-container">
+        <nav>
+            <a href="{% url 'home_page' %}">Home</a>
+            <a href="{% url 'list' %}">Areas</a>
+    </nav>
+    </div>
+    {% block content %}{% endblock %}
+</body>
+</html>

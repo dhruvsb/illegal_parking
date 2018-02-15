@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %} {{area.name}} {% endblock %}
+
+{% block content %}
+
+<article>
+    <h1>{{ area.name }}</h1>
+    {{ area.pincode }}
+    <h3>List of assessed images</h3>
+    <section>
+        {% for image in area.image_set.all %}
+        {% if image.assessed is True %}
+        <h5>{{ image.number_plate }}</h5>
+        <h5>{{ image.coordinates }}</h5>
+        <h5>{{ image.image_id }}</h5>
+        {% if image.fined is True %}
+        <h4 style="color:red;">Fined</h4>
+        {% else %}
+        <h4 style="color:green;">Not Fined</h4>
+        {% endif %}
+        <img src="{{ image.image.url }}" alt="car" height="400" width="400"></br></br></br></br>
+        {% endif %}
+        {% endfor %}
+    </section>
+</article>
+{% endblock %}

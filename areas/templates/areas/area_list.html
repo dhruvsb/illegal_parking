@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block static %}<link rel="stylesheet" type="text/css" href="{% static 'areas/css/areas.css' %}">{% endblock %}
+{% block title %}Areas{% endblock %}
+
+{% block content %}
+<div class="cards">
+    {% for area in areas %}
+    <div class="card">
+        <header><a href="{% url 'detail' pk=area.pk %}">{{ area.name }}</a></header>
+        <div class="card-copy">
+            {{ area.area_id }}</br>
+            {{area.pincode}}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
