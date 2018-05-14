@@ -25,7 +25,7 @@ SECRET_KEY = 'yaa)f3ceys6l$*v&dxr-5!)o&w(54!-^cfgapzk#!%0z4a&xjo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://illegal-parking.herokuapp.com/', 'localhost']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'areas',
 ]
 
@@ -126,4 +127,13 @@ STATICFILES_DIRS = (
 )
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),"media_cdn")
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
+
+#REST_FRAMEWORK = {
+#    'DEFAULT_AUTHENTICATION_CLASSES': (
+#        'rest_framework.authentication.SessionAuthentication',
+##    ),
+#   'DEFAULT_PERMISSION_CLASSES': (
+#      'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+#    )
+#}
